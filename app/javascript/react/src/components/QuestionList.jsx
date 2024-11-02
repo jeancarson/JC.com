@@ -4,30 +4,39 @@ import * as ReactDOM from 'react-dom'
 const QuestionList = () => {
     const questionsList = [
         { 
-            title: "How to check if a key is present in a hash?", tag: "Ruby" 
+            id: 1,
+            title: "How to check if a id is present in a hash?", tag: "Ruby" 
         },
         { 
+            id: 2,
             title: "What is the difference between strings and symbol?", tag: "Ruby" 
         },        
         { 
-            title: "What happens if you add two of the same keys in hash?", tag: "Ruby" 
+            id: 3,
+            title: "What happens if you add two of the same ids in hash?", tag: "Ruby" 
         },
         { 
-            title: "How to delete a given key from a hash?", tag: "Ruby" 
+            id: 4,
+            title: "How to delete a given id from a hash?", tag: "Ruby" 
         },
         { 
+            id: 5,
             title: "How to check if two hashes are identical?", tag: "Ruby" 
         },
         { 
+            id: 6,
             title: "How to combine two hashes in Ruby", tag: "Ruby" 
         },
         { 
-            title: "How to get uniwue keys from two hashes in Ruby?", tag: "Ruby" 
+            id: 7,
+            title: "How to get uniwue ids from two hashes in Ruby?", tag: "Ruby" 
         },
         { 
-            title: "What does the has_key?, key?, include?, member? do?", tag: "Ruby" 
+            id: 8,
+            title: "What does the has_id?, id?, include?, member? do?", tag: "Ruby" 
         },
         { 
+            id: 9,
             title: "Does the order of keys matterwhen comparing two hashes?", tag: "Ruby" 
         },
     ]
@@ -36,7 +45,7 @@ const QuestionList = () => {
         <div className = "row"> 
             <div className = "col-lg-10 mx-auto">
                 {questionsList.map((question) =>
-                <div className = "card rounded-0 mt-3">
+                <div className = "card rounded-0 mt-3" key = { question.id} >
                     <div className = "card-body">
                         <h3 className = "card-title">{question.title}</h3>
                         <p className = "lead">
