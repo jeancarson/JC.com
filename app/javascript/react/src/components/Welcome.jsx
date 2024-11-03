@@ -2,14 +2,26 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom/client'
 import QuestionList from './QuestionList'
 
-const Welcome = () => {
-    return (
-    <div>
-        <h1>Hello!</h1>
-        < QuestionList />
-     </div>
-    )
+// const Welcome = () => {
+//     return (
+//     <div>
+//         <h1>Hello!</h1>
+//         < QuestionList />
+//      </div>
+//     )
+//     }
+
+//apparently you cant interact with browser with class components
+class Welcome extends React.Component {
+    render() {
+        return (
+            <div>
+                <h1>Hello!</h1>
+                <QuestionList />
+            </div>
+        )
     }
+}
 
 const root = ReactDOM.createRoot(document.getElementById('welcome'));
 root.render(
