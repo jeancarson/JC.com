@@ -15,7 +15,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :questions, only: [:index] do
+      # by default this maps to QuestionsController because of resources :questions
+      resources :questions, only: [:index, :create] do
         member do
           put :update_counter
         end
