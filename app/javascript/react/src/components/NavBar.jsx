@@ -30,8 +30,8 @@ const NavBar = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Features
+              <a className="nav-link" href="play">
+                Play
               </a>
             </li>
             <li className="nav-item">
@@ -76,9 +76,12 @@ const NavBar = () => {
 
 export default NavBar;
 
-const root = ReactDOM.createRoot(document.getElementById('navbar'));
-root.render(
-  <React.StrictMode>
-    <NavBar />
-  </React.StrictMode>
-);
+const navElement = document.getElementById('navbar');
+if (navElement) {
+  const root = ReactDOM.createRoot(document.getElementById('navbar'));
+  root.render(
+    <React.StrictMode>
+      <NavBar />
+    </React.StrictMode>
+  );
+}
