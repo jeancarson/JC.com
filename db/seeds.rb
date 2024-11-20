@@ -7,6 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+Question.destroy_all
+# CountDownGameScore.destroy_all
 puts 'Creating Questions...'
 questions = Question.create ([
         { 
@@ -38,3 +40,52 @@ questions = Question.create ([
         }
     ])
 puts 'Questions created!'
+
+puts 'Creating countdown game scores...'
+count_down_game_score = CountDownGameScore.create ([
+        {
+            initials: "ABC",
+            score: 1000
+        },
+        {
+            initials: "DEF",
+            score: 2000
+        },
+        {
+            initials: "GHI",
+            score: 3000
+        },
+        {
+            initials: "JKL",
+            score: 4000
+        },
+        {
+            initials: "MNO",
+            score: 5000
+        },
+        {
+            initials: "PQR",
+            score: 6000
+        },
+        {
+            initials: "STU",
+            score: 7000
+        },
+        {
+            initials: "VWX",
+            score: 8000
+        },
+        {
+            initials: "YZA",
+            score: 9000
+        },
+        {
+            initials: "BCD",
+            score: 10000
+        },
+        {
+            initials: "EFG",
+            score: 20000
+        }
+    ])
+puts 'Countdown game scores created!'AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

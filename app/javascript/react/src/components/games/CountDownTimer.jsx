@@ -1,44 +1,51 @@
 import React, { useState, useEffect } from 'react';
+import EnterInitials from './EnterInitials';
 
 const CountdownTimer = () => {
   const initialTime = 5000; // Start at 5000 ms (5 seconds)
   const [timeLeft, setTimeLeft] = useState(initialTime);
   const [isRunning, setIsRunning] = useState(false);
+  const [isGameOver, setIsGameOver] = useState(false);
   const [score, setScore] = useState(null);
+  const [showInitials, setShowInitials] = useState(false);
 
   useEffect(() => {
     let timer;
     if (isRunning && timeLeft > 0) {
-      // Only set the timer when the game is running
       timer = setInterval(() => {
         setTimeLeft((prevTime) => Math.max(prevTime - 10, 0)); // Decrease time by 10ms
       }, 10);
-    } else if (!isRunning) {
-      // Stop the timer when the game is paused
-      clearInterval(timer);
     }
-
-    return () => clearInterval(timer); // Cleanup the interval on unmount
+    return () => clearInterval(timer); // Cleanup the interval on unmount or state change
   }, [isRunning, timeLeft]);
 
   const handleKeyDown = (event) => {
     if (event.code === 'Space') {
       event.preventDefault();
-      setIsRunning((prev) => !prev); // Toggle timer state (start/pause)
+      if (isRunning) {
+        // Pause the game
+        setIsRunning(false);
+        setIsGameOver(true);
+        console.log('Paused the game');
+      } else if (!isRunning && !isGameOver) {
+        // Start the game
+        setIsRunning(true);
+        setIsGameOver(false);
+        console.log('Started the game');
+      }
     }
 
-    // Only handle "Enter" when the timer is paused
-    if (event.code === 'Enter' && !isRunning) {
-      handleEnter(); // Submit score only if the game is paused
+    if (event.code === 'Enter' && !isRunning && isGameOver) {
+      event.preventDefault();
+      handleEnter();
     }
   };
 
   const handleEnter = () => {
-    event.preventDefault();
-    if (!isRunning) {
-      // Check that the game is paused
-      // Set score based on current timeLeft
-      //   setScore(formatTime(timeLeft)); // Pass the correct timeLeft value
+    if (isGameOver && timeLeft > 0) {
+      setScore(formatTime(timeLeft)); // Set score based on current timeLeft
+      console.log('Score submitted:', formatTime(timeLeft));
+      setShowInitials(true);
     }
   };
 
@@ -46,7 +53,7 @@ const CountdownTimer = () => {
     setIsRunning(false);
     setTimeLeft(initialTime); // Reset to initial time
     setScore(null); // Clear the score
-    event.target.blur(); // Remove focus from the button
+    setIsGameOver(false);
   };
 
   const formatTime = (milliseconds) => {
@@ -57,41 +64,56 @@ const CountdownTimer = () => {
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
-
     return () => {
       window.removeEventListener('keydown', handleKeyDown); // Cleanup event listener
     };
-  }, []);
+  }, [isRunning, isGameOver]); // Dependencies ensure the correct state is used
 
   useEffect(() => {
     if (timeLeft === 0) {
-      setIsRunning(false); // Stop the timer when timeLeft reaches 0
-    }
-  });
-  useEffect(() => {
-    if (timeLeft != initialTime) {
-      setScore(formatTime(timeLeft));
+      setIsRunning(false);
+      setIsGameOver(true); // Stop the timer when timeLeft reaches 0
     }
   }, [timeLeft]);
+
+  const handleCloseModal = () => {
+    setShowInitials(false);
+  };
+  useEffect(() => {
+    if (score !== null) {
+      console.log('Score updated:', score);
+    }
+  }, [score]);
 
   return (
     <div
       style={{
+        border: '4px solid black',
+        padding: '30px',
         textAlign: 'center',
         marginTop: '50px',
-        backgroundColor: timeLeft === 0 ? 'red' : 'transparent',
-        minHeight: '100vh',
+        backgroundColor: !isGameOver
+          ? 'white'
+          : timeLeft === 0
+            ? 'red'
+            : 'green',
+        minHeight: '50vh',
         paddingTop: '20px',
         transition: 'background-color 0.1s ease',
+        height: '50px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
-      <h1>Countdown Timer</h1>
+      <h1>STOP as close to zero as possible</h1>
       <h2>{formatTime(timeLeft)} seconds</h2>
       <p>
         Press the <strong>space bar</strong> to start/pause the timer.
       </p>
       <p>
-        Press <strong>Enter</strong> to submit your score (only when paused).
+        Press <strong>Enter</strong> to submit your score.
       </p>
       <button
         onClick={handleReset}
@@ -100,6 +122,7 @@ const CountdownTimer = () => {
         Reset
       </button>
       <h3>{score !== null ? `Score: ${score}` : ''}</h3>
+      {showInitials && <EnterInitials onClose={handleCloseModal} />}
     </div>
   );
 };

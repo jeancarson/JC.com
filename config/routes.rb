@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :users
+  ActiveAdmin.routes(self)
   root "home#index"
 
   get 'play', to: 'count_game#play', as: 'play'
@@ -25,4 +28,7 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  resources :count_down_game_scores, only: [:create, :index]
+
 end

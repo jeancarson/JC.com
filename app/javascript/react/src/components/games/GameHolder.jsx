@@ -4,8 +4,10 @@ import * as ReactDOM from 'react-dom/client';
 
 const GameHolder = () => {
   return (
-    <div>
-      <h1 style={{ color: 'red', textAlign: 'center' }}>Play a game</h1>
+    <div style={{ border: '10px solid black', padding: '30px' }}>
+      <h1 style={{ color: 'red', textAlign: 'center' }}>
+        Play my game AHHHHHHHHH!!
+      </h1>
       <CountdownTimer />
     </div>
   );
