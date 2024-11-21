@@ -19,7 +19,7 @@ class CountDownGameScoresController < ApplicationController
     
       # GET /scores
       def index
-        scores = CountDownGameScore.order(:score).limit(10) # Get top 10 scores
+        scores = CountDownGameScore.order(:score)
         render json: scores, status: :ok
       end
 end

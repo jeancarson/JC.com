@@ -1,6 +1,7 @@
 import React from 'react';
 import CountdownTimer from './CountDownTimer';
 import * as ReactDOM from 'react-dom/client';
+import TopScores from './TopScores';
 
 const GameHolder = () => {
   return (
@@ -9,6 +10,8 @@ const GameHolder = () => {
         Play my game AHHHHHHHHH!!
       </h1>
       <CountdownTimer />
+
+      <TopScores numberOfScores={2} />
     </div>
   );
 };

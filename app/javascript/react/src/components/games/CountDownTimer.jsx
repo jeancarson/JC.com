@@ -100,7 +100,7 @@ const CountdownTimer = () => {
         minHeight: '50vh',
         paddingTop: '20px',
         transition: 'background-color 0.1s ease',
-        height: '50px',
+        // height: '50',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -121,8 +121,9 @@ const CountdownTimer = () => {
       >
         Reset
       </button>
-      <h3>{score !== null ? `Score: ${score}` : ''}</h3>
-      {showInitials && <EnterInitials onClose={handleCloseModal} />}
+      {showInitials && (
+        <EnterInitials score={score} onClose={handleCloseModal} />
+      )}
     </div>
   );
 };
