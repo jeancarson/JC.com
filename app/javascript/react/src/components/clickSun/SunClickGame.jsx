@@ -17,6 +17,7 @@ const SunClickGame = () => {
         backgroundImage: `url(${backgroundImage})`,
       }}
     >
+      <Sun />
       <h1>playyyy!</h1>
     </div>
   );

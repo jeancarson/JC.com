@@ -10,7 +10,7 @@ const Sun = () => {
       animate={{ scale: isClicked ? 1.5 : 1 }}
       onClick={() => setIsClicked(!isClicked)}
       style={{
-        background: 'red',
+        background: '#eb311b',
         borderRadius: '50%',
         width: 100,
         height: 100,

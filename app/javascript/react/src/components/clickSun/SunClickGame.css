@@ -1,6 +1,14 @@
 .sun-click-game {
+  all: unset;
+  border: 10px solid black;
+  padding: 10px;
   background-size: cover;
   background-position: center;
-  width: 100%;
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Arrange children vertically */
+  justify-content: center; /* Optional: center items vertically */
+  align-items: center; /* Optional: center items horizontally */
+  margin: 0;
+  width: 91vw;
   height: 100vh;
 }
