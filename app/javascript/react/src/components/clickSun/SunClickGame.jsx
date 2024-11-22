@@ -4,26 +4,28 @@ import './SunClickGame.css';
 import Sun from './Sun';
 
 const SunClickGame = () => {
+  const containerRef = React.useRef(null); // Correctly reference the container
   const sunClickGameElement = document.getElementById(
     'sun-click-game-container'
   );
   const backgroundImage = sunClickGameElement.dataset.backgroundImage;
-
-  console.log('Rendering SunClickGame');
   return (
     <div
+      ref={containerRef}
+      id="sun-click-game-container"
       className="sun-click-game"
       style={{
-        backgroundImage: `url(${backgroundImage})`,
+        backgroundImage: `url(${backgroundImage})`, // Set the background image from the data attribute
       }}
     >
-      <Sun />
-      <h1>playyyy!</h1>
+      <div className="sun-click-game-content">
+        <Sun containerRef={containerRef} />{' '}
+        {/* Pass ref to the Sun component */}
+      </div>
     </div>
   );
 };
 export default SunClickGame;
-
 document.addEventListener('DOMContentLoaded', () => {
   const sunClickGameElement = document.getElementById(
     'sun-click-game-container'

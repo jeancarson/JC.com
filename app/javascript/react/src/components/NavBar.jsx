@@ -1,71 +1,41 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import Sun from './clickSun/Sun';
+
+// Custom Navbar Component
 const NavBar = () => {
   return (
-    <nav
-      className="navbar fixed-top navbar-expand-lg bg-body-tertiary "
-      data-bs-theme="dark"
-    >
-      <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+    <nav style={navBarStyles}>
+      <div style={navBarContentStyles}>
+        <a href="#" style={navBrandStyles}>
           Navbar
         </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
+        {/* Custom Button */}
+        <button onClick={toggleNavMenu} style={navTogglerStyles}>
+          ☰
         </button>
-        <div className="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+        {/* Custom Navigation Menu */}
+        <div style={navMenuStyles}>
+          <ul style={navListStyles}>
+            <li style={navItemStyles}>
+              <a href="#" style={navLinkStyles}>
                 Home
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="play">
+            <li style={navItemStyles}>
+              <a href="play" style={navLinkStyles}>
                 Play
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
+            <li style={navItemStyles}>
+              <a href="#" style={navLinkStyles}>
                 Pricing
               </a>
             </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
+            <li style={navItemStyles}>
+              <a href="#" style={navLinkStyles}>
                 Dropdown link
               </a>
-              <ul className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
-              </ul>
             </li>
           </ul>
         </div>
@@ -74,11 +44,71 @@ const NavBar = () => {
   );
 };
 
+// Custom Styles
+const navBarStyles = {
+  backgroundColor: '#333',
+  padding: '10px 20px',
+  color: 'white',
+  textAlign: 'center',
+};
+
+const navBarContentStyles = {
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+};
+
+const navBrandStyles = {
+  fontSize: '1.5rem',
+  color: 'white',
+  textDecoration: 'none',
+};
+
+const navTogglerStyles = {
+  fontSize: '24px',
+  backgroundColor: 'transparent',
+  border: 'none',
+  color: 'white',
+  cursor: 'pointer',
+};
+
+const navMenuStyles = {
+  display: 'none',
+  width: '100%',
+};
+
+const navListStyles = {
+  listStyleType: 'none',
+  margin: 0,
+  padding: 0,
+  display: 'flex',
+  justifyContent: 'center',
+};
+
+const navItemStyles = {
+  margin: '0 15px',
+};
+
+const navLinkStyles = {
+  color: 'white',
+  textDecoration: 'none',
+};
+
+// Function to toggle menu visibility (for mobile view)
+const toggleNavMenu = () => {
+  const menu = document.querySelector('nav div div');
+  if (menu.style.display === 'block') {
+    menu.style.display = 'none';
+  } else {
+    menu.style.display = 'block';
+  }
+};
+
 export default NavBar;
 
 const navElement = document.getElementById('navbar');
 if (navElement) {
-  const root = ReactDOM.createRoot(document.getElementById('navbar'));
+  const root = ReactDOM.createRoot(navElement);
   root.render(
     <React.StrictMode>
       <NavBar />

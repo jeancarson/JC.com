@@ -11,7 +11,7 @@ const GameHolder = () => {
       </h1>
       <CountdownTimer />
 
-      <TopScores numberOfScores={2} />
+      <TopScores numberOfScores={5} />
     </div>
   );
 };

@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { Modal } from 'bootstrap';
+import React, { useState, useRef, useEffect } from 'react';
 import ServerSideError from '../ServerSIdeError';
 
 const EnterInitials = ({ score, onClose }) => {
@@ -7,6 +6,7 @@ const EnterInitials = ({ score, onClose }) => {
   const [serverSideErrors, setServerSideErrors] = useState([]);
   const inputRef = useRef(null);
   const [initials, setInitials] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(true); // Ensure the modal is open when triggered
 
   const handleInputChange = (event) => {
     const value = event.target.value.toUpperCase().slice(0, 3);
@@ -43,88 +43,104 @@ const EnterInitials = ({ score, onClose }) => {
   };
 
   useEffect(() => {
-    const modalElement = document.getElementById('exampleModal');
-    const modal = new Modal(modalElement);
+    if (inputRef.current) {
+      inputRef.current.focus(); // Focus input when modal is shown
+    }
+  }, []);
 
-    modal.show();
-    const handleModalShown = () => {
-      if (inputRef.current) {
-        inputRef.current.focus();
-      }
-    };
-    modalElement.addEventListener('shown.bs.modal', handleModalShown);
-
-    const handleHidden = () => {
-      onClose();
-    };
-
-    modalElement.addEventListener('hidden.bs.modal', handleHidden);
-
-    return () => {
-      modalElement.removeEventListener('shown.bs.modal', handleModalShown);
-      modalElement.removeEventListener('hidden.bs.modal', handleHidden);
-      modal.hide();
-      const backdrop = document.querySelector('.modal-backdrop');
-      if (backdrop) backdrop.remove();
-    };
-  }, [onClose]);
+  const closeModal = () => {
+    setIsModalOpen(false);
+    onClose();
+  };
 
   return (
-    <div
-      className="modal fade"
-      id="exampleModal"
-      tabIndex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div className="modal-dialog">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h1 className="modal-title fs-5" id="exampleModalLabel">
-              Enter your initials
-            </h1>
-            <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div className="modal-body">
-            {isServerSideError && <ServerSideError errors={serverSideErrors} />}
-            <p>Your score: {score}</p>
-            <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                maxLength="3"
-                style={{ textTransform: 'uppercase' }}
-                onChange={handleInputChange}
-                className="form-control"
-                placeholder="Enter initials"
-                ref={inputRef}
-              />
-
-              <div className="modal-footer">
-                {/* <button
-              type="button"
-              className="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Canc
-            </button> */}
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  onClick={handleSubmit}
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
+    <>
+      {isModalOpen && (
+        <div
+          style={{
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            right: '0',
+            bottom: '0',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 9999,
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: 'white',
+              borderRadius: '8px',
+              width: '90%',
+              maxWidth: '500px',
+              padding: '20px',
+              boxSizing: 'border-box',
+            }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <h1 style={{ margin: '0', fontSize: '1.5rem' }}>
+                Enter your initials
+              </h1>
+              <button
+                onClick={closeModal}
+                style={{
+                  border: 'none',
+                  background: 'transparent',
+                  fontSize: '1.5rem',
+                  cursor: 'pointer',
+                }}
+              >
+                &times;
+              </button>
+            </div>
+            <div style={{ marginTop: '15px' }}>
+              {isServerSideError && (
+                <ServerSideError errors={serverSideErrors} />
+              )}
+              <p>Your score: {score}</p>
+              <form onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  maxLength="3"
+                  style={{
+                    textTransform: 'uppercase',
+                    width: '100%',
+                    padding: '8px',
+                    fontSize: '1rem',
+                    marginBottom: '15px',
+                    borderRadius: '5px',
+                    border: '1px solid #ccc',
+                  }}
+                  onChange={handleInputChange}
+                  placeholder="Enter initials"
+                  ref={inputRef}
+                />
+                <div style={{ textAlign: 'right' }}>
+                  <button
+                    type="button"
+                    onClick={handleSubmit}
+                    style={{
+                      backgroundColor: '#007bff',
+                      color: 'white',
+                      padding: '10px 15px',
+                      fontSize: '1rem',
+                      border: 'none',
+                      borderRadius: '5px',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 
