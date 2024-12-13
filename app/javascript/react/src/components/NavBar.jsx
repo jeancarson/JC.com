@@ -7,18 +7,13 @@ const NavBar = () => {
   return (
     <nav style={navBarStyles}>
       <div style={navBarContentStyles}>
-        <a href="#" style={navBrandStyles}>
+        <a href="/" style={navBrandStyles}>
           Navbar
         </a>
-        {/* Custom Button */}
-        <button onClick={toggleNavMenu} style={navTogglerStyles}>
-          AHH
-        </button>
-        {/* Custom Navigation Menu */}
         <div style={navMenuStyles}>
           <ul style={navListStyles}>
             <li style={navItemStyles}>
-              <a href="#" style={navLinkStyles}>
+              <a href="/" style={navLinkStyles}>
                 Home
               </a>
             </li>
@@ -28,8 +23,8 @@ const NavBar = () => {
               </a>
             </li>
             <li style={navItemStyles}>
-              <a href="#" style={navLinkStyles}>
-                Pricing
+              <a href="serious" style={navLinkStyles}>
+                Serious
               </a>
             </li>
             <li style={navItemStyles}>
@@ -73,7 +68,7 @@ const navTogglerStyles = {
 };
 
 const navMenuStyles = {
-  display: 'none',
+  display: 'block',
   width: '100%',
 };
 
