@@ -1,0 +1,20 @@
+.urgent-text {
+  color: red;
+}
+
+.fantasy-font {
+  font-family: fantasy;
+}
+
+/* @font-face {
+  font-family: 'Winter-Half';
+  src: url('/../../../assets/fonts/Winter-Half.ttf') format('truetype');
+}
+
+.winter-half-font {
+  font-family: 'Winter-Half', 'fantasy';
+} */
+
+.adale-mono-font {
+  font-family: 'Andale Mono', monospace;
+}

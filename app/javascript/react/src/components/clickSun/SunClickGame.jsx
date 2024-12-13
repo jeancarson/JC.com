@@ -1,7 +1,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
-import './SunClickGame.css';
+import './sun-click-game.css';
 import Sun from './Sun';
+import '../../my-styles.css';
 
 const SunClickGame = () => {
   const containerRef = React.useRef(null); // Correctly reference the container
@@ -36,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sunClickGameRoot.render(
       <React.StrictMode>
         <div>
-          <h1>Click the sun!</h1>
+          <p className="fantasy-font">Click the sun!</p>
         </div>
         <SunClickGame />
       </React.StrictMode>

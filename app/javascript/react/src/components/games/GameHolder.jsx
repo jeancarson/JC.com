@@ -2,13 +2,11 @@ import React from 'react';
 import CountdownTimer from './CountDownTimer';
 import * as ReactDOM from 'react-dom/client';
 import TopScores from './TopScores';
+import './count-down-game.css';
 
 const GameHolder = () => {
   return (
-    <div style={{ border: '10px solid black', padding: '30px' }}>
-      <h1 style={{ color: 'red', textAlign: 'center' }}>
-        Play my game AHHHHHHHHH!!
-      </h1>
+    <div className="game-holder">
       <CountdownTimer />
 
       <TopScores numberOfScores={5} />

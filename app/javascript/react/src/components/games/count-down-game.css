@@ -1,0 +1,29 @@
+.game-holder {
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+  background-color: rgba(245, 245, 245, 0.5);
+  border: 10px solid black;
+  padding: 5px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+.reset-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #7c8980;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition */
+  border-radius: 10px;
+  /* add font */
+  font-family: 'Andale Mono', monospace;
+}
+
+.reset-button:hover {
+  background-color: #005b89; /* Background color on hover */
+}

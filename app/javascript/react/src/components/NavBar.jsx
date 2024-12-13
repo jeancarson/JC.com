@@ -12,7 +12,7 @@ const NavBar = () => {
         </a>
         {/* Custom Button */}
         <button onClick={toggleNavMenu} style={navTogglerStyles}>
-          ☰
+          AHH
         </button>
         {/* Custom Navigation Menu */}
         <div style={navMenuStyles}>

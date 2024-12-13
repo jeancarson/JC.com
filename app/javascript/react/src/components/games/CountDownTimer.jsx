@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import EnterInitials from './EnterInitials';
+import './count-down-game.css';
+import '../../my-styles.css';
 
 const CountdownTimer = () => {
   const initialTime = 5000; // Start at 5000 ms (5 seconds)
@@ -91,34 +93,50 @@ const CountdownTimer = () => {
         border: '4px solid black',
         padding: '30px',
         textAlign: 'center',
-        marginTop: '50px',
+        heigth: '50%',
         backgroundColor: !isGameOver
-          ? 'white'
+          ? 'rgba(245, 245, 245, 0.5)'
           : timeLeft === 0
-            ? 'red'
-            : 'green',
+            ? 'rgba(182, 39, 0, 0.7)'
+            : 'rgba(1, 74, 22, 0.7)',
         minHeight: '50vh',
         paddingTop: '20px',
         transition: 'background-color 0.1s ease',
-        // height: '50',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        marginBottom: '5px',
+        borderRadius: '30px 30px 0px 0px',
       }}
     >
-      <h1>STOP as close to zero as possible</h1>
-      <h2>{formatTime(timeLeft)} seconds</h2>
-      <p>
-        Press the <strong>space bar</strong> to start/pause the timer.
-      </p>
-      <p>
-        Press <strong>Enter</strong> to submit your score.
-      </p>
-      <button
-        onClick={handleReset}
-        style={{ marginTop: '20px', padding: '10px 20px', fontSize: '16px' }}
+      <h1
+        className="adale-mono-font"
+        style={{ color: isGameOver ? 'white' : 'black' }}
       >
+        <strong>STOOOOP the timer as close to zero as possible!</strong>
+      </h1>
+      <h2
+        className="adale-mono-font"
+        style={{ color: isGameOver ? 'white' : 'black' }}
+      >
+        {formatTime(timeLeft)} seconds
+      </h2>
+      {!isGameOver ? (
+        <p className="adale-mono-font">
+          Press the <strong>space bar</strong> to start/pause the timer
+        </p>
+      ) : timeLeft === 0 ? (
+        <p className="adale-mono-font" style={{ color: 'white' }}>
+          YOU LOSE... LOSER
+        </p>
+      ) : (
+        <p className="adale-mono-font" style={{ color: 'white' }}>
+          Press <strong>Enter</strong> to submit your score.
+        </p>
+      )}
+
+      <button className="reset-button" onClick={handleReset}>
         Reset
       </button>
       {showInitials && (

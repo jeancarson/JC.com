@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ServerSideError from '../ServerSIdeError';
+import '../../my-styles.css';
 
 const EnterInitials = ({ score, onClose }) => {
   const [isServerSideError, setIsServerSideError] = useState(false);
@@ -81,7 +82,10 @@ const EnterInitials = ({ score, onClose }) => {
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <h1 style={{ margin: '0', fontSize: '1.5rem' }}>
+              <h1
+                className="adale-mono-font"
+                style={{ margin: '0', fontSize: '1.5rem' }}
+              >
                 Enter your initials
               </h1>
               <button
@@ -96,11 +100,11 @@ const EnterInitials = ({ score, onClose }) => {
                 &times;
               </button>
             </div>
-            <div style={{ marginTop: '15px' }}>
+            <div className="adale-mono-font" style={{ marginTop: '15px' }}>
               {isServerSideError && (
                 <ServerSideError errors={serverSideErrors} />
               )}
-              <p>Your score: {score}</p>
+              <p className="adale-mono-font">Your score: {score}</p>
               <form onSubmit={handleSubmit}>
                 <input
                   type="text"

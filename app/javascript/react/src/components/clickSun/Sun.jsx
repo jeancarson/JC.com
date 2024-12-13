@@ -39,7 +39,7 @@ const Sun = ({ containerRef }) => {
     const newX = Math.min(Math.max(moveX, 0), container.offsetWidth - 120);
     const newY = Math.min(Math.max(moveY, 0), container.offsetHeight - 120);
 
-    if (newX !== position.x || newY !== position.y) {
+    if (distance < 200 && (newX !== position.x || newY !== position.y)) {
       setPosition({ x: newX, y: newY });
     }
   };
