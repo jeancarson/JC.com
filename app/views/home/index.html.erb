@@ -1,7 +1,55 @@
-<div>
-    <div id='navbar' style="margin-bottom: 20px;">
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%
+=begin%>
+    <title><%= content_for(:title) || "Jean Carson" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="<%= asset_path 'favicon.png' %>" type="image/x-icon">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <%
+=end%>
+
+    <style>
+        /* Set the background image on the html and body for the entire screen */
+        html,
+        body {
+            height: 100%;
+            /* Ensure that html and body fill the full height */
+            margin: 0;
+            /* Remove default margin */
+            padding: 0;
+            /* Remove default padding */
+            background-image: url('<%= asset_path("galaxy-background.jpg") %>');
+            background-size: cover;
+            /* Make the background cover the entire viewport */
+            background-position: center;
+            /* Center the background image */
+            background-repeat: repeat
+                /* Prevent image repetition */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar" style="margin-bottom: 20px;">
     </div>
-    <div id='sun-click-game-container' style="margin-top: 60px;" data-background-image="<%= asset_path('the-banquet.png') %>">
+
+    <div id="sun-click-game-container" style="margin-top: 60px;" data-background-image="<%= asset_path('the-banquet.png') %>">
     </div>
+
     <h1>sdfsadf</h1>
-</div>
+    <div id="game-carosel"></div>
+
+</body>
+
+</html>

@@ -95,7 +95,7 @@ const CountdownTimer = () => {
         textAlign: 'center',
         heigth: '50%',
         backgroundColor: !isGameOver
-          ? 'rgba(245, 245, 245, 0.5)'
+          ? 'rgba(245, 245, 245, 0.7)'
           : timeLeft === 0
             ? 'rgba(182, 39, 0, 0.7)'
             : 'rgba(1, 74, 22, 0.7)',
