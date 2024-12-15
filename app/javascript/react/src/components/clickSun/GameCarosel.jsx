@@ -8,7 +8,8 @@ const GameCarosel = () => {
       <CarolselElement
         title="Stop the clock"
         description="How close to 0 can ou stop the timer or will you be a LOSER"
-        image="<%= asset_path('the-banquet.png') %"
+        link="play"
+        // image="<%= asset_path('the-banquet.png') %>"
       />
       <CarolselElement />
       <CarolselElement />
@@ -16,21 +17,28 @@ const GameCarosel = () => {
   );
 };
 
-const CarolselElement = ({ title = '', description = '', image = '' }) => {
+const CarolselElement = ({
+  title = '',
+  description = '',
+  image = '',
+  link = '',
+}) => {
   return (
-    <div className="card1">
-      <div className="card2">
-        <div style={{ padding: '20px' }}>
-          {image && <img src={image} alt={title} />}
-          <h3 style={{ color: 'white' }} className="adale-mono-font">
-            {title}
-          </h3>
-          <p style={{ color: 'white' }} className="adale-mono-font">
-            {description}
-          </p>
+    <a href={link} className="card-link" style={{ textDecoration: 'none' }}>
+      <div className="card1">
+        <div className="card2">
+          <div style={{ padding: '20px' }}>
+            {image && <img src={image} alt={title} />}
+            <h3 style={{ color: 'white' }} className="adale-mono-font">
+              {title}
+            </h3>
+            <p style={{ color: 'white' }} className="adale-mono-font">
+              {description}
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </a>
   );
 };
 

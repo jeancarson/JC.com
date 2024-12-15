@@ -1,34 +1,39 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
-import Sun from './clickSun/Sun';
-
+import '../my-styles.css';
+import { zip } from 'lodash';
 // Custom Navbar Component
+
 const NavBar = () => {
   return (
     <nav style={navBarStyles}>
       <div style={navBarContentStyles}>
-        <a href="/" style={navBrandStyles}>
-          Navbar
+        <a href="/" style={navBrandStyles} className="adale-mono-font">
+          JEANNNN
         </a>
         <div style={navMenuStyles}>
           <ul style={navListStyles}>
             <li style={navItemStyles}>
-              <a href="/" style={navLinkStyles}>
+              <a href="/" style={navLinkStyles} className="adale-mono-font">
                 Home
               </a>
             </li>
             <li style={navItemStyles}>
-              <a href="play" style={navLinkStyles}>
+              <a href="play" style={navLinkStyles} className="adale-mono-font">
                 Play
               </a>
             </li>
             <li style={navItemStyles}>
-              <a href="serious" style={navLinkStyles}>
+              <a
+                href="serious"
+                style={navLinkStyles}
+                className="adale-mono-font"
+              >
                 Serious
               </a>
             </li>
             <li style={navItemStyles}>
-              <a href="#" style={navLinkStyles}>
+              <a href="#" style={navLinkStyles} className="adale-mono-font">
                 Dropdown link
               </a>
             </li>
@@ -45,6 +50,9 @@ const navBarStyles = {
   padding: '10px 20px',
   color: 'white',
   textAlign: 'center',
+  position: 'sticky',
+  top: 0,
+  zIndex: 999,
 };
 
 const navBarContentStyles = {

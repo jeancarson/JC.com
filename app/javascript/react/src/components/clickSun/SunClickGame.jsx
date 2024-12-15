@@ -26,12 +26,6 @@ const SunClickGame = () => {
           {/* Pass ref to the Sun component */}
         </div>
       </div>
-      <div className="card1">
-        <div className="card2"></div>
-      </div>
-      <h1 className="adale-mono-font" style={{ color: 'white' }}>
-        Click the sun!
-      </h1>
     </div>
   );
 };
@@ -47,7 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
       <React.StrictMode>
         <div>
           <p className="adale-mono-font" style={{ color: 'white' }}>
-            Click the sun!
+            Idk why you're here, but if you're a <strong>serious</strong> person
+            in a <strong>serious</strong> mood, click the sun!
           </p>
         </div>
         <SunClickGame />
