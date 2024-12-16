@@ -1,5 +1,5 @@
 .cv-image-card {
-  height: 70vh;
+  height: 40vw;
   width: 50vw;
   background-color: #000000;
   border-radius: 20px;
@@ -9,6 +9,7 @@
   margin-top: 10vh;
   margin-bottom: 10vh;
   position: relative;
+  justify-content: left;
 }
 
 .cv-title {
@@ -16,24 +17,28 @@
   color: #ffffff;
   font-family: 'Andale Mono', monospace;
   font-style: italic;
-  margin-top: 10px;
-  position: absolute;
-  top: 20%;
-  left: 90%;
-  width: 20vw;
 }
 
 .cv-description-box {
-  background-color: rbga(0, 0, 0, 0.5);
+  text-align: left;
+  background-color: rbga(0, 0, 0, 1);
   border-radius: 20px;
   margin-top: 10px;
   position: absolute;
   top: 30%;
   left: 90%;
-  width: 40vw;
+  width: 30vw;
+  padding: 5px;
 }
 .cv-description-text {
   font-size: 1.5vw;
   color: #ffffff;
   font-family: 'Andale Mono', monospace;
+}
+
+.cv-image {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  object-fit: cover;
 }

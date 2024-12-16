@@ -4,12 +4,12 @@
   background-size: cover;
   background-position: center;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin: 0;
-  width: 60vw;
-  height: 90vh;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  height: 70vh;
   position: relative; /* This allows absolutely positioned children to move inside */
+  margin: 0 auto; /* Center the container horizontally */
 }
 
 .sun-click-game-content {

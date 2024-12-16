@@ -12,9 +12,11 @@ const CVElement = React.forwardRef((props, ref) => {
       transition={{ duration: 1 }}
     >
       <div className="cv-image-card">
-        {props.image && <img src={props.image} alt={props.title} />}
-        <h1 className="cv-title">{props.title}</h1>
+        {props.image && (
+          <img className="cv-image" src={props.image} alt={props.title} />
+        )}
         <div className="cv-description-box">
+          <h1 className="cv-title">{props.title}</h1>
           <p className="cv-description-text">{props.description}</p>
         </div>
       </div>
