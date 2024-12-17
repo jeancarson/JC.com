@@ -61,3 +61,5 @@ gem "activeadmin", "~> 3.2"
 gem 'devise'
 gem 'sassc'
 gem 'react-rails'
+
+gem "stripe", "~> 13.2"

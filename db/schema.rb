@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_20_220046) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_17_220038) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -43,6 +43,13 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_20_220046) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["initials"], name: "index_count_down_game_scores_on_initials", unique: true
+  end
+
+  create_table "drinks", force: :cascade do |t|
+    t.string "name"
+    t.decimal "priceml", precision: 5, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "questions", force: :cascade do |t|

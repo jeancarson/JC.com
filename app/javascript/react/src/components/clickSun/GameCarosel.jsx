@@ -9,6 +9,7 @@ const GameCarosel = () => {
         title="Stop the clock"
         description="How close to 0 can ou stop the timer or will you be a LOSER"
         link="play"
+        image="/images/clock-xxl.png"
         // image="<%= asset_path('the-banquet.png') %>"
       />
       <CarolselElement />
@@ -28,7 +29,15 @@ const CarolselElement = ({
       <div className="card1">
         <div className="card2">
           <div style={{ padding: '20px' }}>
-            {image && <img src={image} alt={title} />}
+            <div
+              style={{
+                justifyContent: 'center',
+                display: 'flex',
+                margin: '10px',
+              }}
+            >
+              {image && <img src={image} alt={title} />}{' '}
+            </div>
             <h3 style={{ color: 'white' }} className="adale-mono-font">
               {title}
             </h3>

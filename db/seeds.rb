@@ -88,4 +88,12 @@ count_down_game_score = CountDownGameScore.create ([
             score: 20000
         }
     ])
-puts 'Countdown game scores created!'AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+puts 'Countdown game scores created!'
+# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+Drink.create(name: 'Orange Juice', priceml: 0.05)
+Drink.create(name: 'Apple Juice', priceml: 0.04)
+Drink.create(name: 'Vodka', priceml: 0.03)
+
+puts 'Drinks created!'
+

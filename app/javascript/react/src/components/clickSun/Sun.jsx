@@ -16,8 +16,8 @@ const Sun = ({ containerRef }) => {
   useEffect(() => {
     const container = containerRef.current;
     if (container) {
-      const initialX = container.offsetWidth * 0.535 - 120; // Start at 50% width, adjusting for the sun's size
-      const initialY = container.offsetHeight * 0.55 - 120; // Start at 40% height, adjusting for the sun's size
+      const initialX = container.offsetWidth * 0.516 - vwToPx(6); // Start at 50% width, adjusting for the sun's size
+      const initialY = container.offsetHeight * 0.5135 - vwToPx(6); // Start at 40% height, adjusting for the sun's size
       setPosition({ x: initialX, y: initialY });
     }
   }, [containerRef]);
@@ -74,8 +74,8 @@ const Sun = ({ containerRef }) => {
         top: `${position.y}px`,
         background: '#eb311b',
         borderRadius: '50%',
-        width: '120px',
-        height: '120px',
+        width: '8vw',
+        height: '8vw',
       }}
     />
   );

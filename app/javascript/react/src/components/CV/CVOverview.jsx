@@ -29,13 +29,14 @@ const CVOverview = () => {
       <CVElement
         title="Analog Devices"
         description="Played a lot of pool and occasionally fought with some embedded C"
-        image="/images/galaxy-background.jpg"
+        image="/images/analog-wires.jpg"
         ref={(el) => (sectionRefs.current[0] = el)} // Assign ref
       />
       <CVElement
         title="Intercom"
         description="Did web developemnt using React and Ruby on Rails and ate a lot of chocolate"
         ref={(el) => (sectionRefs.current[1] = el)} // Assign ref
+        image="/images/intercom-pool.jpg"
       />
       <CVElement
         title="ISE Block 4"
