@@ -94,6 +94,9 @@ puts 'Countdown game scores created!'
 Drink.create(name: 'Orange Juice', priceml: 0.05)
 Drink.create(name: 'Apple Juice', priceml: 0.04)
 Drink.create(name: 'Vodka', priceml: 0.03)
+Drink.create(name: 'Vodka', priceml: 0.03, description: 'A strong alcoholic drink made from grain and potatoes', imagepath: 'vodka.jpg')
+Drink.create(name: 'tequila', priceml: 0.03, description: 'A strong alcoholic drink made from grain and potatoes', imagepath: 'vodka.jpg')
+
 
 puts 'Drinks created!'
 

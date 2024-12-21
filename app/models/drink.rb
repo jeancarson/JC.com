@@ -5,6 +5,6 @@ class Drink < ApplicationRecord
 
 
     def self.ransackable_attributes(auth_object = nil)
-        ["id", "id_value", "name", "priceml", "created_at", "updated_at"]
+        ["id", "id_value", "name", "description", "imagepath", "priceml", "created_at", "updated_at"]
       end
 end
