@@ -39,17 +39,24 @@ const DrinkMenu = (props) => {
 
   return (
     <div className="drink-menu">
-      <DrinkCard
-        title="Mojito"
-        description="A refreshing Cuban cocktail made with rum, lime, mint, and sugar."
-        image="tequila.png"
-        price={5}
-        totalCapacity={totalCapacity}
-        totalQuantity={totalQuantity}
-        onAdd={handleAddQuantity}
-        onRemove={handleRemoveQuantity}
-        increment={increment}
-      />
+      {drinkList.length > 0 ? (
+        drinkList.map((drink) => (
+          <DrinkCard
+            key={drink.id}
+            title={drink.name}
+            description={drink.description}
+            image={drink.imagepath}
+            price={drink.priceml}
+            totalCapacity={totalCapacity}
+            totalQuantity={totalQuantity}
+            onAdd={handleAddQuantity}
+            onRemove={handleRemoveQuantity}
+            increment={increment}
+          ></DrinkCard>
+        ))
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 };
