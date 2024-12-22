@@ -5,7 +5,7 @@ ActiveAdmin.register Drink do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :name, :priceml
+  permit_params :name, :priceml, :description, :imagepath
   #
   # or
   #
@@ -14,5 +14,6 @@ ActiveAdmin.register Drink do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+
   
 end

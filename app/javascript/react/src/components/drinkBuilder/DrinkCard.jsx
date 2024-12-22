@@ -15,8 +15,11 @@ const DrinkCard = (props) => {
         )}
       </div>
       <div className="drink-description-box">
-        <h1 className="drink-title-text">{props.title}</h1>
+        <h1 className="drink-title-text">
+          {props.title} €{props.price * props.increment}/portion
+        </h1>
         <p className="drink-description-text">{props.description}</p>
+        {/* <p className="drink-price-text">Price: ${props.price}</p> */}
       </div>
       <Adder
         totalCapacity={props.totalCapacity}

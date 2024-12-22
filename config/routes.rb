@@ -28,9 +28,8 @@ Rails.application.routes.draw do
           put :update_counter
         end
       end
+      resources :drinks, only: [:index, :create]
+      resources :count_down_game_scores, only: [:create, :index]
     end
   end
-
-  resources :count_down_game_scores, only: [:create, :index]
-
 end

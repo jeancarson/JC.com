@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './drink-styles.css';
 import * as ReactDOM from 'react-dom/client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import DrinkCard from './DrinkCard';
 
@@ -21,37 +21,34 @@ const DrinkMenu = (props) => {
     setTotalQuantity((prevQuantity) => Math.max(prevQuantity - increment, 0));
     console.log('Total quantity: ', { totalQuantity });
   };
+
+  const [drinkList, setDrinkList] = useState([]);
+  const drinksUrl = 'http://localhost:3000/api/v1/drinks';
+
+  const fetchDrinks = () => {
+    fetch(drinksUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        setDrinkList(data);
+        console.log(data);
+      });
+  };
+  useEffect(() => {
+    fetchDrinks();
+  }, []);
+
   return (
     <div className="drink-menu">
       <DrinkCard
         title="Mojito"
         description="A refreshing Cuban cocktail made with rum, lime, mint, and sugar."
         image="tequila.png"
+        price={5}
         totalCapacity={totalCapacity}
         totalQuantity={totalQuantity}
         onAdd={handleAddQuantity}
         onRemove={handleRemoveQuantity}
         increment={increment}
-      />
-      <DrinkCard
-        title="Old Fashione"
-        description="A classic cocktail made with bourbon, sugar, bitters, and a twi."
-        image="orange-juice.png"
-        totalCapacity={totalCapacity}
-        totalQuantity={totalQuantity}
-        onAdd={handleAddQuantity}
-        onRemove={handleRemoveQuantity}
-        increment={increment}
-      />
-      <DrinkCard
-        title="Margarita"
-        description="A popular Mexican cocktail made with tequila, lime, and orange liqueur."
-        image="tullamore-dew.jpg"
-      />
-      <DrinkCard
-        title="Margarita"
-        description="A popular Mexican cocktail made with tequila, lime, and orange liqueur."
-        image="coors.jpg"
       />
     </div>
   );
