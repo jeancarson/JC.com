@@ -36,7 +36,13 @@ const CarolselElement = ({
                 margin: '10px',
               }}
             >
-              {image && <img src={image} alt={title} />}{' '}
+              {image && (
+                <img
+                  src={image}
+                  alt={title}
+                  style={{ height: '50%', width: '50%' }}
+                />
+              )}{' '}
             </div>
             <h3 style={{ color: 'white' }} className="adale-mono-font">
               {title}
