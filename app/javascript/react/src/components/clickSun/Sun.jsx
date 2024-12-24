@@ -33,7 +33,7 @@ const Sun = ({ containerRef }) => {
     const dy = mouseY - position.y;
     const distance = Math.sqrt(dx * dx + dy * dy);
 
-    const speed = 10; ///frames per second ...I think????
+    const speed = 6; ///frames per second ...I think????
     const moveX = position.x - (dx / distance) * speed;
     const moveY = position.y - (dy / distance) * speed;
 

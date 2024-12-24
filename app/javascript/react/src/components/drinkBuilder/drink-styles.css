@@ -2,7 +2,8 @@
   width: 30px;
   height: 30px;
   border-radius: 15px;
-  background-color: #0eb7ff;
+  background-color: #118ab2;
+  color: #8fdbf5;
 }
 
 .drink-title-text {
@@ -32,7 +33,7 @@
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
-  background-color: #bfebfe;
+  background-color: #8fdbf5;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,13 +42,15 @@
 .drink-menu {
   display: flex;
   flex: 1 1 20%;
-  margin: 10px;
+  margin: 20px;
   padding: 10px;
   border: 1px solid #000;
-  border-radius: 5px;
+  border-radius: 15px;
   flex-wrap: wrap;
   justify-content: space-around;
   max-width: 70vw;
+  background-color: #333333;
+  border: 10px solid #ffd166;
 }
 
 @media (max-width: 1200px) {
@@ -106,4 +109,149 @@
   justify-content: center;
   height: 100px;
   /* margin-top: 10px; */
+}
+
+.price-breakdown-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40vw;
+  margin: 20px;
+  background-color: #8fdbf5;
+  height: 200vh;
+  border-radius: 15px;
+  border: 10px solid #ffd166;
+  padding: 20px;
+}
+
+.drink-builder-container {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  justify-content: center;
+  width: 100%;
+}
+.price-breakdown-details {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 40vw;
+  height: 50%;
+  border: 5px solid #333;
+  width: 30vw;
+  margin: 20px;
+  border-radius: 5px;
+}
+
+.checkout-button {
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #118ab2;
+  color: #000;
+  font-family: 'Adale Mono', monospace;
+  font-size: medium;
+  background-color: #ffd166;
+  margin: 20px;
+}
+
+.price-breakdown-title {
+  font-family: 'Adale Mono', monospace;
+  font-size: large;
+  margin-left: 30px;
+  text-decoration: underline;
+}
+
+.price-breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.price-breakdown-name {
+  font-family: 'Adale Mono', monospace;
+  font-size: small;
+  text-align: left;
+  margin-left: 30px;
+}
+
+.price-breakdown-price {
+  font-family: 'Adale Mono', monospace;
+  font-size: small;
+  text-align: right;
+  margin-right: 30px;
+}
+
+.pint-mask {
+  width: 100%;
+  height: 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+}
+
+.pint-macros-container {
+  width: 40vw;
+  height: 183px;
+  border: 5px solid black;
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  border-radius: 5px;
+  padding: 10px;
+  align-items: center;
+}
+
+.buy-details-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pint-display-container {
+  width: 200px;
+  height: 183px;
+  position: relative;
+  border: 1px solid black;
+}
+
+.pint-stripes {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 600px) {
+  .drink-builder-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .price-breakdown-container {
+    width: 73vw;
+    border-radius: 5px;
+  }
+  .price-breakdown-details {
+    width: 60vw;
+  }
+  .pint-macros-container {
+    width: 70vw;
+    height: auto;
+    flex-direction: column;
+  }
+  .buy-details-container {
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }

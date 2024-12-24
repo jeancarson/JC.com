@@ -9,6 +9,7 @@ const Adder = (props) => {
   const removeQuantity = () => {
     if (quantity >= increment) {
       setQuantity(quantity - increment);
+      props.setTotalPrice(props.totalPrice - props.price);
     } else {
       setQuantity(0);
     }
@@ -18,6 +19,7 @@ const Adder = (props) => {
   const addQuantity = () => {
     if (props.totalQuantity + increment <= props.totalCapacity) {
       setQuantity(quantity + increment);
+      props.setTotalPrice(props.totalPrice + props.price);
     }
     props.onAdd();
   };

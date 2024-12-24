@@ -5,7 +5,7 @@ ActiveAdmin.register Drink do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :name, :priceml, :description, :imagepath
+  permit_params :name, :priceml, :description, :imagepath, :color
   #
   # or
   #

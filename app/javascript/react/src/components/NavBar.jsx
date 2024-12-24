@@ -9,7 +9,7 @@ const NavBar = () => {
     <nav style={navBarStyles}>
       <div style={navBarContentStyles}>
         <a href="/" style={navBrandStyles} className="adale-mono-font">
-          JEANNNN
+          JEAN
         </a>
         <div style={navMenuStyles}>
           <ul style={navListStyles}>
@@ -20,7 +20,7 @@ const NavBar = () => {
             </li>
             <li style={navItemStyles}>
               <a href="play" style={navLinkStyles} className="adale-mono-font">
-                Play
+                Play a Game
               </a>
             </li>
             <li style={navItemStyles}>
@@ -29,12 +29,16 @@ const NavBar = () => {
                 style={navLinkStyles}
                 className="adale-mono-font"
               >
-                Serious
+                My CV
               </a>
             </li>
             <li style={navItemStyles}>
-              <a href="#" style={navLinkStyles} className="adale-mono-font">
-                Dropdown link
+              <a
+                href="drinkUP"
+                style={navLinkStyles}
+                className="adale-mono-font"
+              >
+                Buy Me a Drink
               </a>
             </li>
           </ul>
@@ -89,7 +93,7 @@ const navListStyles = {
 };
 
 const navItemStyles = {
-  margin: '0 15px',
+  margin: '0 25px 0 25px',
 };
 
 const navLinkStyles = {

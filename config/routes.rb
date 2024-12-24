@@ -29,7 +29,8 @@ Rails.application.routes.draw do
         end
       end
       resources :drinks, only: [:index, :create]
-      resources :count_down_game_scores, only: [:create, :index]
     end
   end
+  resources :count_down_game_scores, only: [:create, :index]
+
 end
