@@ -25,13 +25,13 @@
   border-radius: 20px;
   margin-top: 10px;
   position: absolute;
-  top: 30%;
+  top: 20%;
   left: 110%;
   width: 25vw;
   padding: 5px;
 }
 .cv-description-text {
-  font-size: 1.5vw;
+  font-size: 0.8em;
   color: #ffffff;
   font-family: 'Andale Mono', monospace;
 }
@@ -41,4 +41,32 @@
   height: 100%;
   margin: 0 auto;
   object-fit: cover;
+}
+
+.cv-intro {
+  border: 1px solid white;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+.cv-intro-title {
+  font-size: 1.5em;
+  color: #ffffff;
+  font-family: 'Andale Mono', monospace;
+}
+
+.cv-intro-text {
+  font-size: 1em;
+  color: #ffffff;
+  font-family: 'Andale Mono', monospace;
+}
+
+.cv-intro-link {
+  color: #ffffff;
+  font-family: 'Andale Mono', monospace;
+}
+
+.cv-intro-link:hover {
+  color: #43ff75;
 }
