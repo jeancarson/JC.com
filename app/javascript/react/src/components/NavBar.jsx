@@ -48,6 +48,7 @@ const NavBar = () => {
   );
 };
 
+const NavText = 'adale-mono, monospace';
 // Custom Styles
 const navBarStyles = {
   backgroundColor: '#333',
@@ -63,12 +64,14 @@ const navBarContentStyles = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+  fontFamily: NavText,
 };
 
 const navBrandStyles = {
   fontSize: '1.5rem',
   color: 'white',
   textDecoration: 'none',
+  fontFamily: NavText,
 };
 
 const navTogglerStyles = {

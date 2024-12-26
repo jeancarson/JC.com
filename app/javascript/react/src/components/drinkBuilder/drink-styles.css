@@ -117,11 +117,11 @@
   align-items: center;
   width: 40vw;
   margin: 20px;
-  background-color: #8fdbf5;
+  background-color: #333;
   height: 200vh;
   border-radius: 15px;
   border: 10px solid #ffd166;
-  padding: 20px;
+  padding: 40px;
 }
 
 .drink-builder-container {
@@ -137,10 +137,10 @@
   padding: 10px;
   width: 40vw;
   height: 50%;
-  border: 5px solid #333;
-  width: 30vw;
+  border: 5px solid black;
   margin: 20px;
   border-radius: 5px;
+  background-color: #8fdbf5;
 }
 
 .checkout-button {
@@ -209,6 +209,7 @@
   border-radius: 5px;
   padding: 10px;
   align-items: center;
+  background-color: #8fdbf5;
 }
 
 .buy-details-container {
