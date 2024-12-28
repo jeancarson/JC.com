@@ -117,10 +117,10 @@ const CVOverview = () => {
             <br />
             As our final project we were tasked with building a taxi simulation
             app in Java with a heavy focus on OOP principles. With my teammate I
-            made a terminal based app which presents a user alist of nearby
-            randomly moving 'ghost' taxi, which takes the optimal path to their
-            destination. Users can choose their ride based on price and rating,
-            and can rate the jouney at the end 🚕
+            made a terminal based app which presents a user with a list of
+            nearby randomly moving 'ghost' taxis, which takes the optimal path
+            to their destination. Users can choose their ride based on price and
+            rating, and can rate the jouney at the end 🚕🚕🚕
           </>
         }
         image="/images/block2-taxi.png"

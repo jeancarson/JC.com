@@ -33,7 +33,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: db
+  host: localhost
   username: portfolio3
   password: portfolio3
   pool: 5
