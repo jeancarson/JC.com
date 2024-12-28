@@ -5,7 +5,9 @@ gem "rails", "~> 7.2.1", ">= 7.2.1.2"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", ">= 1.4"
+# gem "sqlite3", ">= 1.4"
+# Use postgresql as the database for Active Record
+gem 'pg'
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
@@ -60,4 +62,8 @@ gem 'cssbundling-rails'
 gem "activeadmin", "~> 3.2"
 gem 'devise'
 gem 'sassc'
+gem 'react-rails'
 
+gem 'dotenv-rails'
+
+gem "stripe", "~> 13.2"

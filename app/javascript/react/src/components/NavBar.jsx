@@ -1,40 +1,44 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
-import Sun from './clickSun/Sun';
-
+import '../my-styles.css';
+import { zip } from 'lodash';
 // Custom Navbar Component
+
 const NavBar = () => {
   return (
     <nav style={navBarStyles}>
       <div style={navBarContentStyles}>
-        <a href="#" style={navBrandStyles}>
-          Navbar
+        <a href="/" style={navBrandStyles} className="adale-mono-font">
+          JEEAANN
         </a>
-        {/* Custom Button */}
-        <button onClick={toggleNavMenu} style={navTogglerStyles}>
-          ☰
-        </button>
-        {/* Custom Navigation Menu */}
         <div style={navMenuStyles}>
           <ul style={navListStyles}>
             <li style={navItemStyles}>
-              <a href="#" style={navLinkStyles}>
+              <a href="/" style={navLinkStyles} className="adale-mono-font">
                 Home
               </a>
             </li>
             <li style={navItemStyles}>
-              <a href="play" style={navLinkStyles}>
-                Play
+              <a href="play" style={navLinkStyles} className="adale-mono-font">
+                Play a Game
               </a>
             </li>
             <li style={navItemStyles}>
-              <a href="#" style={navLinkStyles}>
-                Pricing
+              <a
+                href="serious"
+                style={navLinkStyles}
+                className="adale-mono-font"
+              >
+                My CV
               </a>
             </li>
             <li style={navItemStyles}>
-              <a href="#" style={navLinkStyles}>
-                Dropdown link
+              <a
+                href="drinkUP"
+                style={navLinkStyles}
+                className="adale-mono-font"
+              >
+                Buy Me a Drink
               </a>
             </li>
           </ul>
@@ -44,24 +48,30 @@ const NavBar = () => {
   );
 };
 
+const NavText = 'adale-mono, monospace';
 // Custom Styles
 const navBarStyles = {
   backgroundColor: '#333',
   padding: '10px 20px',
   color: 'white',
   textAlign: 'center',
+  position: 'sticky',
+  top: 0,
+  zIndex: 999,
 };
 
 const navBarContentStyles = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+  fontFamily: NavText,
 };
 
 const navBrandStyles = {
   fontSize: '1.5rem',
   color: 'white',
   textDecoration: 'none',
+  fontFamily: NavText,
 };
 
 const navTogglerStyles = {
@@ -73,7 +83,7 @@ const navTogglerStyles = {
 };
 
 const navMenuStyles = {
-  display: 'none',
+  display: 'block',
   width: '100%',
 };
 
@@ -86,7 +96,7 @@ const navListStyles = {
 };
 
 const navItemStyles = {
-  margin: '0 15px',
+  margin: '0 25px 0 25px',
 };
 
 const navLinkStyles = {

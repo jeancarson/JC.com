@@ -10,14 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_20_220046) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_23_115724) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
-    t.integer "resource_id"
+    t.bigint "resource_id"
     t.string "author_type"
-    t.integer "author_id"
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
@@ -43,6 +46,16 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_20_220046) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["initials"], name: "index_count_down_game_scores_on_initials", unique: true
+  end
+
+  create_table "drinks", force: :cascade do |t|
+    t.string "name"
+    t.decimal "priceml", precision: 5, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "description"
+    t.string "imagepath"
+    t.string "color"
   end
 
   create_table "questions", force: :cascade do |t|

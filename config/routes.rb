@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'drinkUP', to: 'drink_builder#index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users
   ActiveAdmin.routes(self)
@@ -27,9 +28,9 @@ Rails.application.routes.draw do
           put :update_counter
         end
       end
+      resources :drinks, only: [:index, :create]
     end
   end
-
   resources :count_down_game_scores, only: [:create, :index]
 
 end

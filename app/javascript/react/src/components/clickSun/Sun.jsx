@@ -10,13 +10,14 @@ const Sun = ({ containerRef }) => {
     setIsClicked(!isClicked);
     window.location.href = '/serious';
   };
+  const vwToPx = (vw) => (vw / 100) * window.innerWidth;
 
   // initial position
   useEffect(() => {
     const container = containerRef.current;
     if (container) {
-      const initialX = container.offsetWidth * 0.4755 - 60; // Start at 50% width, adjusting for the sun's size
-      const initialY = container.offsetHeight * 0.465 - 60; // Start at 40% height, adjusting for the sun's size
+      const initialX = container.offsetWidth * 0.516 - vwToPx(6); // Start at 50% width, adjusting for the sun's size
+      const initialY = container.offsetHeight * 0.5135 - vwToPx(6); // Start at 40% height, adjusting for the sun's size
       setPosition({ x: initialX, y: initialY });
     }
   }, [containerRef]);
@@ -32,12 +33,18 @@ const Sun = ({ containerRef }) => {
     const dy = mouseY - position.y;
     const distance = Math.sqrt(dx * dx + dy * dy);
 
-    const speed = 10; ///frames per second ...I think????
+    const speed = 6; ///frames per second ...I think????
     const moveX = position.x - (dx / distance) * speed;
     const moveY = position.y - (dy / distance) * speed;
 
-    const newX = Math.min(Math.max(moveX, 0), container.offsetWidth - 120);
-    const newY = Math.min(Math.max(moveY, 0), container.offsetHeight - 120);
+    const newX = Math.min(
+      Math.max(moveX, 0),
+      container.offsetWidth - vwToPx(10)
+    );
+    const newY = Math.min(
+      Math.max(moveY, 0),
+      container.offsetHeight - vwToPx(10)
+    );
 
     if (newX !== position.x || newY !== position.y) {
       setPosition({ x: newX, y: newY });
@@ -67,8 +74,8 @@ const Sun = ({ containerRef }) => {
         top: `${position.y}px`,
         background: '#eb311b',
         borderRadius: '50%',
-        width: 120,
-        height: 120,
+        width: '8vw',
+        height: '8vw',
       }}
     />
   );

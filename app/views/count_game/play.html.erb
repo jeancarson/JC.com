@@ -1,11 +1,14 @@
 <div>
-    <h1> HEY there! </h1>
+    <div id='navbar' style="margin-bottom: 20px;">
+    </div>
 
     <%
 =begin%>
     <h2> You have played <%= @count %> times! </h2>
     <%
 =end%>
-    <div id="game-holder">
+    <div style="background-image: url('<%= asset_path('wibly-wobly.jpg') %>'); display: flex; justify-content: center; align-items: center;">
+        <div id="game-holder" style="margin-top: 60px;">
+        </div>
     </div>
 </div>

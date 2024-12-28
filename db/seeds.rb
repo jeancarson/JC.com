@@ -8,6 +8,12 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 Question.destroy_all
+
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+
+
 # CountDownGameScore.destroy_all
 puts 'Creating Questions...'
 questions = Question.create ([
@@ -88,4 +94,68 @@ count_down_game_score = CountDownGameScore.create ([
             score: 20000
         }
     ])
-puts 'Countdown game scores created!'AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+puts 'Countdown game scores created!'
+
+Drink.create(
+  name: 'Orange Juice', 
+  priceml: 0.05, 
+  created_at: 'December 22, 2024 12:13', 
+  updated_at: 'December 23, 2024 12:03', 
+  description: 'ZESTY', 
+  imagepath: 'orange-juice.png', 
+  color: '#ffbb00'
+)
+
+Drink.create(
+  name: 'Vodka', 
+  priceml: 0.2, 
+  created_at: 'December 22, 2024 12:12', 
+  updated_at: 'December 23, 2024 12:04', 
+  description: '37.5% ABV', 
+  imagepath: 'smirnoff.jpg', 
+  color: '#cfd0d3'
+)
+
+Drink.create(
+  name: 'Tullamore Dew', 
+  priceml: 0.2, 
+  created_at: 'December 22, 2024 12:11', 
+  updated_at: 'December 23, 2024 12:04', 
+  description: "40% ABV, the best because it's from Tullamore", 
+  imagepath: 'tullamore-dew.jpg', 
+  color: '#d59a6f'
+)
+
+Drink.create(
+  name: 'Ribena', 
+  priceml: 0.0, 
+  created_at: 'December 22, 2024 12:14', 
+  updated_at: 'December 23, 2024 12:03', 
+  description: 'Blackcurrant dilute', 
+  imagepath: 'ribena.jpg', 
+  color: '#2e183b'
+)
+
+Drink.create(
+  name: 'Coors', 
+  priceml: 0.01, 
+  created_at: 'December 22, 2024 12:16', 
+  updated_at: 'December 23, 2024 12:02', 
+  description: '4.2% ABV', 
+  imagepath: 'coors.jpg', 
+  color: '#f25e1c'
+)
+
+Drink.create(
+  name: 'White Wine', 
+  priceml: 0.03, 
+  created_at: 'December 22, 2024 12:17', 
+  updated_at: 'December 23, 2024 12:02', 
+  description: '12% ABV', 
+  imagepath: 'white-wine.jpg', 
+  color: '#f9e8c0'
+)
+
+
+puts 'Drinks created!'
+

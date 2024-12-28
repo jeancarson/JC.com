@@ -1,7 +1,63 @@
-<div>
-    <div id='navbar' style="margin-bottom: 20px;">
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%
+=begin%>
+    <title><%= content_for(:title) || "Jean Carson" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="<%= asset_path 'favicon.png' %>" type="image/x-icon">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <%
+=end%>
+
+    <style>
+        /* Set the background image on the html and body for the entire screen */
+        html,
+        body {
+            height: 100%;
+            /* Ensure that html and body fill the full height */
+            margin: 0;
+            /* Remove default margin */
+            padding: 0;
+            /* Remove default padding */
+            background-image: url('<%= asset_path("galaxy-background.jpg") %>');
+            background-size: cover;
+            /* Make the background cover the entire viewport */
+            background-position: center;
+            /* Center the background image */
+            background-repeat: repeat justify-content: center;
+            /* Prevent image repetition */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar" style="margin-bottom: 10px;">
     </div>
-    <div id='sun-click-game-container' style="margin-top: 60px;" data-background-image="<%= asset_path('the-banquet.png') %>">
+    <div style="display: flex; justify-content: center; align-items: center; text-align: center; flex-direction: column">
+        <h1 style="font-size: 72px; color: white;   font-family: 'Andale Mono', monospace;
+"> WELCOME </h1>
+        <div style="justify-contents: center">
+            <div id="sun-click-game-container" style="margin-top: 40px;" data-background-image="<%= asset_path('the-banquet.png') %>">
+            </div>
+        </div>
+
+        <p style=" margin-bottom: 40px; color: white;   font-family: 'Andale Mono', monospace;
+"> Or if you're not dry play one of my games </p>
     </div>
-    <h1>sdfsadf</h1>
-</div>
+
+    <div id="game-carosel"></div>
+
+
+</body>
+
+</html>
