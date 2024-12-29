@@ -36,5 +36,7 @@ gcloud builds submit --config cloudbuild.yaml \
 
 gcloud run deploy portfolio3-service \
  --platform managed \
- --region central1 \
+ --region us-central1 \
  --image gcr.io/portfolio3-446011/portfolio3-service
+
+--set-env-vars RAILS_MASTER_KEY=$(cat config/master.key)

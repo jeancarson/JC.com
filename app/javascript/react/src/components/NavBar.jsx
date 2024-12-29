@@ -9,7 +9,7 @@ const NavBar = () => {
     <nav style={navBarStyles}>
       <div style={navBarContentStyles}>
         <a href="/" style={navBrandStyles} className="adale-mono-font">
-          JEEAANN
+          JEEAANNN
         </a>
         <div style={navMenuStyles}>
           <ul style={navListStyles}>

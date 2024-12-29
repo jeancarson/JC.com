@@ -14,7 +14,6 @@ bundle config unset deployment && \
     bundle config set --local without 'development test' && \
     bundle install
 ENV PATH="/myapp/bin:${PATH}"
-# ENV PATH="$PATH:/usr/local/bundle/bin"
 
 
 # Copy application code to the container image

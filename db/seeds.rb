@@ -9,9 +9,17 @@
 #   end
 Question.destroy_all
 
+if Rails.env.development? && !AdminUser.exists?(email: 'admin@example.com')
+    AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+  end
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
-
+if Rails.env.production? && !AdminUser.exists?(email: 'admin@example.com')
+    AdminUser.create!(
+      email: 'admin@example.com',
+      password: Rails.application.credentials.admin[:password],
+      password_confirmation: Rails.application.credentials.admin[:password]
+    )
+  end
 
 
 # CountDownGameScore.destroy_all
