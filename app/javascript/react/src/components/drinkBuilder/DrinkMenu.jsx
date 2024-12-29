@@ -72,10 +72,10 @@ const DrinkMenu = (props) => {
     console.log('drinkss ', { drinks });
   };
 
-  const drinksUrl = 'http://localhost:3000/api/v1/drinks';
+  // const drinksUrl = 'http://localhost:8080/api/v1/drinks';
 
   const fetchDrinks = () => {
-    fetch(drinksUrl)
+    fetch('/api/v1/drinks')
       .then((response) => response.json())
       .then((data) => {
         setDrinkList(data);

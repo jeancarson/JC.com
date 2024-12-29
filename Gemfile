@@ -64,6 +64,6 @@ gem 'devise'
 gem 'sassc'
 gem 'react-rails'
 
-gem 'dotenv-rails'
+gem 'dotenv-rails', groups: [:development, :test, :production]
 
 gem "stripe", "~> 13.2"

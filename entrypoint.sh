@@ -10,7 +10,26 @@ rm -f tmp/pids/server.pid
 
 # If running the rails server then create or migrate existing database
 if [ "${1}" == "./bin/rails" ] && [ "${2}" == "server" ]; then
-  ./bin/rails db:prepare
+  echo "Preparing database..."
+  
+  # Check if database is up and running, then create and migrate it
+  until bundle exec rake db:create; do
+    echo "Waiting for the database to be ready..."
+    sleep 2
+  done
+  
+  # Run database migrations
+  bundle exec rake db:migrate || { echo "Database migration failed"; exit 1; }
+  
+  # Run asset precompilation (only necessary in production)
+  if [ "$RAILS_ENV" == "production" ]; then
+    echo "Precompiling assets..."
+    bundle exec rake assets:precompile || { echo "Assets precompilation failed"; exit 1; }
+  fi
 fi
 
-exec "${@}"
+# Make sure the application binds to the correct host and port
+echo "Using port: $PORT"
+
+# Start the Rails server
+exec "$@"
