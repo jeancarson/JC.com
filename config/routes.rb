@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  get 'drinkUP', to: 'drink_builder#index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users
   ActiveAdmin.routes(self)
   root "home#index"
 
   get 'play', to: 'count_game#play', as: 'play'
-   get 'serious', to: 'serious_mood#look', as: 'serious'
+  get 'serious', to: 'serious_mood#look', as: 'serious'
+  get 'drinkUP', to: 'drink_builder#index'
+  get 'checkout', to: 'drink_builder#checkout'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

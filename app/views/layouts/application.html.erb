@@ -4,7 +4,11 @@
 <head>
     <title><%= content_for(:title) || "Jean Carson" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%
+=begin%>
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <%
+=end%>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -17,7 +21,6 @@
     <!-- <link rel="apple-touch-icon" href="/icon.png"> -->
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
 
 </head>

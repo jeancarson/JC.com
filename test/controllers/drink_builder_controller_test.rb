@@ -5,4 +5,8 @@ class DrinkBuilderControllerTest < ActionDispatch::IntegrationTest
     get drink_builder_index_url
     assert_response :success
   end
+  test "should get checkout" do
+    get drink_builder_checkout_url
+    assert_response :success
+  end
 end

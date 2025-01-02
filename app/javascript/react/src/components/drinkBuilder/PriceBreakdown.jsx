@@ -1,8 +1,9 @@
-import * as React from 'react';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 import './drink-styles.css';
 import PintDisplay from './PintDisplay';
 
-//props will be something like
+// props will be something like
 /*
 {
   coors: {quantity: 300, price: 3.60, color: 'gold'},
@@ -13,6 +14,11 @@ const PriceBreakdown = (props) => {
   const drinks = props.drinks;
   const increment = props.increment;
   const totalCapacity = props.totalCapacity;
+  const history = useHistory();
+
+  const handleCheckout = () => {
+    history.push('/checkout', { drinks });
+  };
 
   return (
     <div>
@@ -33,7 +39,9 @@ const PriceBreakdown = (props) => {
               )
               .toFixed(2)}
           </p>
-          <button className="checkout-button">Checkout</button>
+          <button className="checkout-button" onClick={handleCheckout}>
+            Checkout
+          </button>
         </div>
       </div>
       <div className="price-breakdown-details">

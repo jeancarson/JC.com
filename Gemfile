@@ -58,7 +58,6 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem 'cssbundling-rails'
 gem "activeadmin", "~> 3.2"
 gem 'devise'
 gem 'sassc'

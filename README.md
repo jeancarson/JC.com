@@ -40,3 +40,8 @@ gcloud run deploy portfolio3-service \
  --image gcr.io/portfolio3-446011/portfolio3-service
 
 --set-env-vars RAILS_MASTER_KEY=$(cat config/master.key)
+
+TEST LOCALLY:
+docker build --build-arg MASTER_KEY=$(cat config/master.key) -t gcr.io/portfolio3-446011/portfolio3-service .
+
+docker run -it -p 8080:8080 gcr.io/portfolio3-446011/portfolio3-service

@@ -66,7 +66,7 @@ const CVOverview = () => {
             In this block I studied software design patterns, data structures &
             algorithms, functional programming (Haskell 😵‍💫), operating sytems,
             computer architecture (basic electronics and building circuits ⚡)
-            and and hosted my ClubHub app from block 3 on AWS
+            and hosted my ClubHub app from block 3 on AWS
             <br />
             <br />
             We also learned about event driven programming through C++ and I
