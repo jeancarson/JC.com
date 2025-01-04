@@ -1,0 +1,83 @@
+.receipt-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.receipt-container {
+  position: relative;
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+}
+
+.receipt-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.receipt-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 25% 20%; /* Adjust padding to position content within receipt */
+  box-sizing: border-box;
+}
+
+.receipt-items-section {
+  flex-grow: 1;
+  margin-bottom: 20px;
+}
+
+.receipt-details {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.items-column {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.prices-column {
+  width: 30%;
+  text-align: right;
+}
+
+.receipt-item,
+.receipt-price {
+  font-family: 'adale-mono', monospace;
+  color: #fff;
+  margin-bottom: 0.5em;
+  font-size: 0.9em;
+  line-height: 1.2;
+}
+
+.receipt-total-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 10px;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'adale-mono', monospace;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .receipt-container {
+    width: 80vw;
+  }
+}

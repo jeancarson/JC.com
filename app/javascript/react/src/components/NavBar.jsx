@@ -19,13 +19,13 @@ const NavBar = () => {
               </a>
             </li>
             <li style={navItemStyles}>
-              <a href="play" style={navLinkStyles} className="adale-mono-font">
+              <a href="/play" style={navLinkStyles} className="adale-mono-font">
                 Play a Game
               </a>
             </li>
             <li style={navItemStyles}>
               <a
-                href="serious"
+                href="/serious"
                 style={navLinkStyles}
                 className="adale-mono-font"
               >
@@ -34,7 +34,7 @@ const NavBar = () => {
             </li>
             <li style={navItemStyles}>
               <a
-                href="drinkUP"
+                href="/drinkUP"
                 style={navLinkStyles}
                 className="adale-mono-font"
               >

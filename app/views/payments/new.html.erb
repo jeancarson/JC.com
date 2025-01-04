@@ -1,0 +1,102 @@
+<head>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #118ab2;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .custom-stripe-button {
+            background-color: #ffd166;
+            color: #fff;
+            font-size: 16px;
+            padding: 12px 24px;
+            border: 5px solid #333;
+            border-radius: 20vw;
+            width: 20vw;
+            height: 20vw;
+            cursor: pointer;
+            font-family: 'Andale Mono', monospace;
+            font-size: auto;
+            color: #333;
+            transition: background-color 0.3s ease;
+        }
+
+        .custom-stripe-button:hover {
+            background-color: #333;
+            color: #fff;
+
+        }
+    </style>
+</head>
+
+<div id="navbar"></div>
+<div style="display: flex; flex-direction: row; align-items: center; justify-content: center; height: 100vh;">
+    <div id="drinks-checkout-receipt" style="width: 70vw;"></div>
+    <div style="width: 30vw; display: flex; flex-direction: column; align-items: flex-start; justify-content: center;">
+        <button class="custom-stripe-button" id="customStripeButton">
+            Checkout
+        </button>
+    </div>
+</div>
+
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const stripeKey = "<%= Rails.configuration.stripe[:publishable_key] %>";
+        const checkoutButton = document.getElementById('customStripeButton');
+
+        if (!stripeKey) {
+            console.error('Stripe key not found');
+            return;
+        }
+
+        // Function to calculate total amount
+        function calculateTotalAmount() {
+            const state = JSON.parse(sessionStorage.getItem('checkoutState') || '{}');
+            const totalAmount = Object.values(state).reduce(
+                (acc, drink) => acc + drink.quantity * drink.price,
+                0
+            );
+            return Math.round(totalAmount * 100); // Convert to cents
+        }
+
+        // Create Stripe Checkout handler
+        const stripeHandler = StripeCheckout.configure({
+            key: stripeKey,
+            image: '/images/favicon.png', // Optional: Add your logo image
+            locale: 'auto',
+            token: function(token) {
+                // Token received from Stripe, process payment
+                console.log('Stripe Token:', token);
+                // Submit token to your backend for further processing
+                document.querySelector('form').submit();
+            },
+        });
+
+        // Add event listener to custom button
+        checkoutButton.addEventListener('click', () => {
+            const totalAmount = calculateTotalAmount();
+            if (totalAmount <= 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+
+            stripeHandler.open({
+                name: 'Drink Purchase',
+                description: 'Buy Jeanie Peanie a drink',
+                amount: totalAmount,
+                currency: 'eur',
+            });
+        });
+
+        // Close Stripe Checkout on page navigation
+        window.addEventListener('popstate', () => {
+            stripeHandler.close();
+        });
+    });
+</script>

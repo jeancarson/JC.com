@@ -6,9 +6,8 @@ Rails.application.routes.draw do
 
   get 'play', to: 'count_game#play', as: 'play'
   get 'serious', to: 'serious_mood#look', as: 'serious'
-  get 'drinkUP', to: 'drink_builder#index'
-  get 'checkout', to: 'drink_builder#checkout'
-
+  get 'drinkUP', to: 'drink_builder#index', as: 'drinkUP'
+  get 'checkout', to: 'payments#create',  as: 'checkout'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -34,5 +33,6 @@ Rails.application.routes.draw do
     end
   end
   resources :count_down_game_scores, only: [:create, :index]
+  resources :payments, only: [:new, :create]
 
 end

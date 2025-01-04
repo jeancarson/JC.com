@@ -1,9 +1,8 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
+import * as React from 'react';
 import './drink-styles.css';
 import PintDisplay from './PintDisplay';
 
-// props will be something like
+//props will be something like
 /*
 {
   coors: {quantity: 300, price: 3.60, color: 'gold'},
@@ -14,10 +13,10 @@ const PriceBreakdown = (props) => {
   const drinks = props.drinks;
   const increment = props.increment;
   const totalCapacity = props.totalCapacity;
-  const history = useHistory();
 
   const handleCheckout = () => {
-    history.push('/checkout', { drinks });
+    sessionStorage.setItem('checkoutState', JSON.stringify(drinks)); // Save state
+    window.location.href = '/checkout';
   };
 
   return (
