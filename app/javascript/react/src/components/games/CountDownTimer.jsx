@@ -11,6 +11,8 @@ const CountdownTimer = () => {
   const [score, setScore] = useState(null);
   const [showInitials, setShowInitials] = useState(false);
 
+  
+
   useEffect(() => {
     let timer;
     if (isRunning && timeLeft > 0) {
@@ -28,7 +30,7 @@ const CountdownTimer = () => {
         // Pause the game
         setIsRunning(false);
         setIsGameOver(true);
-        console.log('Paused the game');
+        console.info('Paused the game');
       } else if (!isRunning && !isGameOver) {
         // Start the game
         setIsRunning(true);

@@ -45,3 +45,15 @@ TEST LOCALLY:
 docker build --build-arg MASTER_KEY=$(cat config/master.key) -t gcr.io/portfolio3-446011/portfolio3-service .
 
 docker run -it -p 8080:8080 gcr.io/portfolio3-446011/portfolio3-service
+
+Build the Docker Image:
+docker build -t myapp:local .
+Run the Container Locally:
+Mount the PostgreSQL data directory to a local volume for persistence:
+
+docker run --rm -it \
+ -v /mnt/disks/my-disk/pg_data:/var/lib/postgresql/data \
+ -e RAILS_MASTER_KEY=$(cat config/master.key) \
+ -p 5432:5432 \
+ -p 8080:8080 \
+ myapp:local
