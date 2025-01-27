@@ -33,7 +33,9 @@ RUN npm ci && \
     npm ci --only=production
 
 # Precompile Rails assets
-RUN RAILS_ENV=production SECRET_KEY_BASE=dummy bundle exec rake assets:precompile && \
+ARG MASTER_KEY
+ENV RAILS_MASTER_KEY=${MASTER_KEY}
+RUN RAILS_ENV=production bundle exec rake assets:precompile && \
     rm -rf node_modules tmp/cache
 
 # Add entrypoint script

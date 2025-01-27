@@ -17,3 +17,5 @@ test:
 production:
   <<: *default
   database: portfolio3-db
+  username: db_user
+  password: <%= Rails.application.credentials.gcp[:db_password] %>
