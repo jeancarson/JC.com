@@ -33,8 +33,14 @@ RUN npm ci && \
     npm ci --only=production
 
 # Precompile Rails assets
-ARG MASTER_KEY
-ENV RAILS_MASTER_KEY=${MASTER_KEY}
+ARG RAILS_MASTER_KEY
+ENV RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
+ENV RDS_HOSTNAME=${RDS_HOSTNAME}
+ENV RDS_USERNAME=${RDS_USERNAME}
+ENV RDS_PASSWORD=${RDS_PASSWORD}
+ENV RDS_DB_NAME=${RDS_DB_NAME}
+ENV SECRET_KEY_BASE=${SECRET_KEY_BASE}
+
 RUN RAILS_ENV=production bundle exec rake assets:precompile && \
     rm -rf node_modules tmp/cache
 

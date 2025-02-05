@@ -19,5 +19,5 @@ production:
   database: <%= ENV.fetch('RDS_DB_NAME') %>
   username: <%= ENV.fetch('RDS_USERNAME') %>
   password: <%= ENV.fetch('RDS_PASSWORD') %>
-  host: <%= ENV.fetch('DATABASE_HOST') %>
-  port: <%= ENV.fetch('DATABASE_PORT', 5432) %>
+  host: <%= ENV.fetch('RDS_HOSTNAME') %>
+  port: <%= ENV.fetch('RDS_PORT', 5432) %>

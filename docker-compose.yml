@@ -3,7 +3,13 @@ services:
     build:
       context: .
       args:
-        - MASTER_KEY=${RAILS_MASTER_KEY}
+        - RAILS_ENV=production
+        - RDS_HOSTNAME=${RDS_HOSTNAME}
+        - RDS_USERNAME=${RDS_USERNAME}
+        - RDS_PASSWORD=${RDS_PASSWORD}
+        - RDS_DB_NAME=${RDS_DB_NAME}
+        - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
+        - SECRET_KEY_BASE=${SECRET_KEY_BASE}
     volumes:
       - .:/myapp
     ports:
