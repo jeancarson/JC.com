@@ -2,8 +2,8 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV.fetch('DATABASE_USERNAME', 'testing') %>
-  password: <%= ENV.fetch('DATABASE_PASSWORD', 'testing') %>
+  username: <%= ENV.fetch('RDS_USERNAME', 'testing') %>
+  password: <%= ENV.fetch('RDS_PASSWORD', 'testing') %>
   host: <%= ENV.fetch('DATABASE_HOST', 'localhost') %>
 
 development:
@@ -16,6 +16,8 @@ test:
 
 production:
   <<: *default
-  database: portfolio3-db
-  username: db_user
-  password: <%= Rails.application.credentials.gcp[:db_password] %>
+  database: <%= ENV.fetch('RDS_DB_NAME') %>
+  username: <%= ENV.fetch('RDS_USERNAME') %>
+  password: <%= ENV.fetch('RDS_PASSWORD') %>
+  host: <%= ENV.fetch('DATABASE_HOST') %>
+  port: <%= ENV.fetch('DATABASE_PORT', 5432) %>

@@ -1,16 +1,4 @@
-version: '3.8'
 services:
-  db:
-    image: postgres:13
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    environment:
-      POSTGRES_DB: portfolio3-db
-      POSTGRES_USER: db_user
-      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
-    ports:
-      - '5432:5432'
-
   web:
     build:
       context: .
@@ -20,15 +8,27 @@ services:
       - .:/myapp
     ports:
       - '8080:8080'
-    depends_on:
-      - db
     environment:
       - RAILS_ENV=production
-      - DATABASE_HOST=db
-      - DATABASE_USERNAME=db_user
-      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - RDS_HOSTNAME=${RDS_HOSTNAME}
+      - RDS_USERNAME=${RDS_USERNAME}
+      - RDS_PASSWORD=${RDS_PASSWORD}
+      - RDS_DB_NAME=${RDS_DB_NAME}
       - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
       - SECRET_KEY_BASE=${SECRET_KEY_BASE}
-
-volumes:
-  postgres_data:
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:8080/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        window: 120s
+    logging:
+      driver: json-file
+      options:
+        max-size: '10m'
+        max-file: '3'

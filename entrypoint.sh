@@ -1,22 +1,24 @@
 #!/bin/bash -e
 
+# Remove the server.pid file if it exists
 rm -f tmp/pids/server.pid
-PGPASSWORD=${DATABASE_PASSWORD} psql -h db -U postgres -c "CREATE USER db_user WITH PASSWORD '${DATABASE_PASSWORD}';" || true
-PGPASSWORD=${DATABASE_PASSWORD} psql -h db -U postgres -c "ALTER USER db_user CREATEDB;" || true
-until pg_isready -h db -U postgres; do
+
+# Wait for the RDS database to be ready
+until pg_isready -h ${RDS_HOSTNAME} -U ${RDS_USERNAME}; do
   echo "Waiting for database..."
   sleep 2
 done
 
-PGPASSWORD=${DATABASE_PASSWORD} psql -h db -U postgres -c "CREATE USER db_user WITH PASSWORD '${DATABASE_PASSWORD}';" || true
-PGPASSWORD=${DATABASE_PASSWORD} psql -h db -U postgres -c "ALTER USER db_user CREATEDB;" || true
-
-bundle exec rake db:create
+# Run database migrations
 bundle exec rake db:migrate
+
+# Seed the database (if needed)
 bundle exec rake db:seed
 
+# Precompile assets in production
 if [ "$RAILS_ENV" == "production" ]; then
   bundle exec rake assets:precompile
 fi
 
+# Start the Rails server
 exec "$@"
