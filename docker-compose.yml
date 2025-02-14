@@ -1,40 +1,40 @@
-services:
-  web:
-    build:
-      context: .
-      args:
-        - RAILS_ENV=production
-        - RDS_HOSTNAME=${RDS_HOSTNAME}
-        - RDS_USERNAME=${RDS_USERNAME}
-        - RDS_PASSWORD=${RDS_PASSWORD}
-        - RDS_DB_NAME=${RDS_DB_NAME}
-        - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
-        - SECRET_KEY_BASE=${SECRET_KEY_BASE}
-    volumes:
-      - .:/myapp
-    ports:
-      - '8080:8080'
-    environment:
-      - RAILS_ENV=production
-      - RDS_HOSTNAME=${RDS_HOSTNAME}
-      - RDS_USERNAME=${RDS_USERNAME}
-      - RDS_PASSWORD=${RDS_PASSWORD}
-      - RDS_DB_NAME=${RDS_DB_NAME}
-      - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
-      - SECRET_KEY_BASE=${SECRET_KEY_BASE}
-    healthcheck:
-      test: ['CMD', 'curl', '-f', 'http://localhost:8080/health']
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
-    deploy:
-      restart_policy:
-        condition: on-failure
-        max_attempts: 3
-        window: 120s
-    logging:
-      driver: json-file
-      options:
-        max-size: '10m'
-        max-file: '3'
+# services:
+#   web:
+#     build:
+#       context: .
+#       args:
+#         - RAILS_ENV=production
+#         - RDS_HOSTNAME=${RDS_HOSTNAME}
+#         - RDS_USERNAME=${RDS_USERNAME}
+#         - RDS_PASSWORD=${RDS_PASSWORD}
+#         - RDS_DB_NAME=${RDS_DB_NAME}
+#         - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
+#         - SECRET_KEY_BASE=${SECRET_KEY_BASE}
+#     volumes:
+#       - .:/myapp
+#     ports:
+#       - '8080:8080'
+#     environment:
+#       - RAILS_ENV=production
+#       - RDS_HOSTNAME=${RDS_HOSTNAME}
+#       - RDS_USERNAME=${RDS_USERNAME}
+#       - RDS_PASSWORD=${RDS_PASSWORD}
+#       - RDS_DB_NAME=${RDS_DB_NAME}
+#       - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
+#       - SECRET_KEY_BASE=${SECRET_KEY_BASE}
+#     healthcheck:
+#       test: ['CMD', 'curl', '-f', 'http://localhost:8080/health']
+#       interval: 30s
+#       timeout: 10s
+#       retries: 3
+#       start_period: 40s
+#     deploy:
+#       restart_policy:
+#         condition: on-failure
+#         max_attempts: 3
+#         window: 120s
+#     logging:
+#       driver: json-file
+#       options:
+#         max-size: '10m'
+#         max-file: '3'
